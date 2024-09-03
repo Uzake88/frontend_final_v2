@@ -6,7 +6,6 @@ import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { MenuIcon, XIcon } from 'lucide-react';
 
-// Define your sidebar links here
 const sidebarLinks = [
   { label: 'Home', route: '/', imgUrl: '/icons/home.svg' },
   { label: 'Find a Tutor', route: '/find-tutor', imgUrl: '/icons/find-tutor.svg' },
@@ -16,14 +15,9 @@ const sidebarLinks = [
   { label: 'Pricing', route: '/pricing', imgUrl: '/icons/pricing.svg' },
 ];
 
-// Sidebar Component Props Interface
-interface SidebarProps {
-  children: React.ReactNode; // To render main content
-}
-
-const Sidebar: React.FC<SidebarProps> = ({ children }) => {
+const Sidebar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const pathname = usePathname() ?? ''; // Fallback to empty string if pathname is null
+  const pathname = usePathname() ?? '';
 
   const toggleSidebar = () => setIsOpen(!isOpen);
 
@@ -87,19 +81,6 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
           aria-hidden="true"
         ></div>
       )}
-
-      {/* Main Content */}
-      <main
-        className={cn(
-          'flex-1 transition-all duration-300 ease-in-out p-6',
-          {
-            'ml-64': isOpen, // Shift main content right when sidebar is open
-            'ml-0': !isOpen, // No shift when sidebar is closed
-          }
-        )}
-      >
-        {children}
-      </main>
     </div>
   );
 };
