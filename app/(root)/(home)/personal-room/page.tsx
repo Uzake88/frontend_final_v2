@@ -28,18 +28,18 @@ const Table = ({
 
 const PersonalRoom = () => {
   const router = useRouter();
-  const { user } = useUser();
   const client = useStreamVideoClient();
   const { toast } = useToast();
 
-  const meetingId = user?.id;
+  // Replace with your logic to generate or retrieve a unique meeting ID
+  const meetingId = "default_meeting_id"; // Replace this with actual logic
 
-  const { call } = useGetCallById(meetingId!);
+  const { call } = useGetCallById(meetingId);
 
   const startRoom = async () => {
-    if (!client || !user) return;
+    if (!client) return;
 
-    const newCall = client.call("default", meetingId!);
+    const newCall = client.call("default", meetingId);
 
     if (!call) {
       await newCall.getOrCreate({
@@ -58,8 +58,8 @@ const PersonalRoom = () => {
     <section className="flex size-full flex-col gap-10 text-white">
       <h1 className="text-xl font-bold lg:text-3xl">Personal Meeting Room</h1>
       <div className="flex w-full flex-col gap-8 xl:max-w-[900px]">
-        <Table title="Topic" description={`${user?.username}'s Meeting Room`} />
-        <Table title="Meeting ID" description={meetingId!} />
+        <Table title="Topic" description="Personal Meeting Room" />
+        <Table title="Meeting ID" description={meetingId} />
         <Table title="Invite Link" description={meetingLink} />
       </div>
       <div className="flex gap-5">
