@@ -41,7 +41,7 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
         onClick={toggleSidebar}
         aria-label="Toggle Sidebar"
       >
-        {isOpen ? <XIcon className="h-6 w-6" /> : <MenuIcon className="h-6 w-6" />}
+        {isOpen ? <XIcon className="size-6" /> : <MenuIcon className="size-6" />}
       </button>
 
       {/* Sidebar */}
@@ -82,7 +82,7 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
       {/* Overlay */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black opacity-50 z-30"
+          className="fixed inset-0 z-30 bg-black opacity-50"
           onClick={toggleSidebar}
           aria-hidden="true"
         ></div>

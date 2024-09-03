@@ -64,14 +64,14 @@ const FindTutor = () => {
     : tutors;
 
   return (
-    <div className="container mx-auto p-6 bg-[#101826]">
-      <h1 className="text-4xl font-bold mb-8 text-white">Find a Tutor</h1>
+    <div className="container mx-auto bg-[#101826] p-6">
+      <h1 className="mb-8 text-4xl font-bold text-white">Find a Tutor</h1>
 
       {/* Dropdown for selecting subjects */}
       <div className="mb-6">
-        <label className="block text-white text-lg mb-2">Filter by Subject:</label>
+        <label className="mb-2 block text-lg text-white">Filter by Subject:</label>
         <select
-          className="w-full p-3 bg-[#3c5783] text-white rounded-lg"
+          className="w-full rounded-lg bg-[#3c5783] p-3 text-white"
           onChange={(e) => setSelectedSubject(e.target.value)}
           defaultValue=""
         >
@@ -90,11 +90,11 @@ const FindTutor = () => {
         </select>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
         {filteredTutors.map(tutor => (
           <div
             key={tutor.id}
-            className="bg-[#3c5783] rounded-lg shadow-lg p-6 transition-transform duration-300 hover:shadow-xl hover:scale-105"
+            className="rounded-lg bg-[#3c5783] p-6 shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl"
           >
             <h2 className="text-2xl font-semibold text-white">{tutor.name}</h2>
             <p className="text-gray-300">Experience: {tutor.experience} years</p>
@@ -105,7 +105,7 @@ const FindTutor = () => {
             <p className={`text-gray-300 ${tutor.status === 'Available' ? 'text-green-400' : 'text-red-400'}`}>Status: {tutor.status}</p>
             <Link
               href={`/tutor/${tutor.id}`}
-              className="mt-4 inline-block bg-[#003a6c] text-white rounded-lg px-4 py-2 text-center hover:bg-[#002654] transition"
+              className="mt-4 inline-block rounded-lg bg-[#003a6c] px-4 py-2 text-center text-white transition hover:bg-[#002654]"
             >
               View Profile
             </Link>

@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { notFound } from 'next/navigation';
 import MeetingTypeList2 from '@/components/MeetingTypeList2';
+import Image from 'next/image';
 
 const tutorData: Record<string, { name: string; experience: number; credentials: string; university: string; rating: number; subject: string; status: string; contact: string; phone: string; linkedin: string }> = {
   '31': { name: 'Juan Dela Cruz', experience: 10, credentials: 'BS Mathematics', university: 'Ateneo de Manila University, Class of 2010', rating: 4.8, subject: 'Mathematics', status: 'Available', contact: 'juan@example.com', phone: '+63 912 345 6789', linkedin: 'https://linkedin.com/in/juan-delacruz' },
@@ -48,9 +49,9 @@ const TutorProfile = ({ params }: { params: { id: string } }) => {
   const [showContact, setShowContact] = useState(false);
 
   return (
-    <div className="container mx-auto p-6 bg-[#e0e0e0] flex justify-between items-start">
+    <div className="container mx-auto flex items-start justify-between bg-[#e0e0e0] p-6">
       <div className="w-2/3">
-        <h1 className="text-4xl font-bold mb-6 text-[#101826]">{tutor.name}</h1>
+        <h1 className="mb-6 text-4xl font-bold text-[#101826]">{tutor.name}</h1>
         <p className="text-gray-700">Experience: {tutor.experience} years</p>
         <p className="text-gray-700">Credentials: {tutor.credentials}</p>
         <p className="text-gray-700">University: {tutor.university}</p>
@@ -61,7 +62,7 @@ const TutorProfile = ({ params }: { params: { id: string } }) => {
         
         <button
           onClick={() => setShowContact(!showContact)}
-          className="mt-4 inline-block bg-[#003a6c] text-white rounded-lg px-4 py-2 text-center hover:bg-[#002654] transition"
+          className="mt-4 inline-block rounded-lg bg-[#003a6c] px-4 py-2 text-center text-white transition hover:bg-[#002654]"
         >
           Show Contact Details
         </button>
@@ -76,7 +77,13 @@ const TutorProfile = ({ params }: { params: { id: string } }) => {
       </div>
 
       <div className="w-1/3">
-        <img src={`/images/tutors/${params.id}.jpg`} alt={`${tutor.name}`} className="rounded-lg shadow-lg object-cover w-full h-auto" />
+        <Image 
+          src={`/images/tutors/${params.id}.jpg`} 
+          alt={`${tutor.name}`} 
+          width={500} 
+          height={500} 
+          className="h-auto w-full rounded-lg object-cover shadow-lg" 
+        />
       </div>
     </div>
   );

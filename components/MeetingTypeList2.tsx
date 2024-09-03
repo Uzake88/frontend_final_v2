@@ -1,8 +1,7 @@
 'use client';
 
-import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Call, useStreamVideoClient } from '@stream-io/video-react-sdk';
+import { useStreamVideoClient } from '@stream-io/video-react-sdk';
 import { useUser } from '@clerk/nextjs';
 import Loader from './Loader';
 import { useToast } from './ui/use-toast';
@@ -10,7 +9,6 @@ import { Button } from './ui/button';
 
 const MeetingTypeList2 = ({ tutorId }: { tutorId: string }) => {
   const router = useRouter();
-  const [callDetail, setCallDetail] = useState<Call>();
   const client = useStreamVideoClient();
   const { user } = useUser();
   const { toast } = useToast();
@@ -18,7 +16,7 @@ const MeetingTypeList2 = ({ tutorId }: { tutorId: string }) => {
   const enterMeeting = async () => {
     if (!client || !user) return;
     try {
-      const id = `tutor_${tutorId}`; // Generate a unique meeting ID based on the tutor's ID
+      const id = `tutor_${tutorId}`; 
       const call = client.call('default', id);
       if (!call) throw new Error('Failed to create meeting');
       
@@ -30,8 +28,7 @@ const MeetingTypeList2 = ({ tutorId }: { tutorId: string }) => {
         },
       });
 
-      setCallDetail(call);
-      router.push(`/meeting/${call.id}`); // Redirect to the meeting room
+      router.push(`/meeting/${call.id}`); 
       toast({
         title: 'Meeting Created',
       });
@@ -44,9 +41,9 @@ const MeetingTypeList2 = ({ tutorId }: { tutorId: string }) => {
   if (!client || !user) return <Loader />;
 
   return (
-    <div className="flex justify-center mt-6">
+    <div className="mt-6 flex justify-center">
       <Button
-        className="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-600 transition-colors"
+        className="rounded bg-blue-500 px-4 py-2 font-bold text-white transition-colors hover:bg-blue-600"
         onClick={enterMeeting}
       >
         Enter Meeting with Tutor

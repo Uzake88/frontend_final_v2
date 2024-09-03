@@ -20,7 +20,7 @@ const HomeCard = ({ className, img, title, description, handleClick }: HomeCardP
       )}
       onClick={handleClick}
     >
-      <div className="flex-center bg-[#64759b] size-12 rounded-[10px]">
+      <div className="flex-center size-12 rounded-[10px] bg-[#64759b]">
         <Image src={img} alt="meeting" width={27} height={27} />
       </div>
       

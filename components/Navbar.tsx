@@ -6,7 +6,7 @@ import MobileNav from '@/components/MobileNav';
 
 const Navbar = () => {
   return (
-    <nav className="flex-between fixed z-50 w-full bg-[#101826]] px-6 py-4 lg:px-10">
+    <nav className="flex-between bg-[#101826] fixed z-50 w-full px-6 py-4 lg:px-10">
       <Link href="/" className="flex items-center gap-10 lg:ml-10"> {/* Adjusted gap and added left margin */}
         <Image
           src="/icons/logo.svg"  
