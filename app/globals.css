@@ -59,35 +59,6 @@
   border: 1px solid rgba(176, 184, 204, 0.25);
 }
 
-/* ==== clerk class override ===== */
-
-.cl-userButtonPopoverActionButtonIcon {
-  color: #ffffff;
-}
-
-.cl-logoBox {
-  height: 40px;
-}
-
-.cl-dividerLine {
-  background: #64759b;
-  height: 2px;
-}
-
-.cl-socialButtonsIconButton {
-  border: 3px solid #b0b8cc;
-}
-
-.cl-internal-wkkub3 {
-  color: #ffffff;
-}
-
-.cl-userButtonPopoverActionButton {
-  color: #ffffff;
-}
-
-/* =============================== */
-
 @layer utilities {
   .flex-center {
     @apply flex justify-center items-center;

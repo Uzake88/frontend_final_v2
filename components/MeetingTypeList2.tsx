@@ -2,7 +2,6 @@
 
 import { useRouter } from 'next/navigation';
 import { useStreamVideoClient } from '@stream-io/video-react-sdk';
-import { useUser } from '@clerk/nextjs';
 import Loader from './Loader';
 import { useToast } from './ui/use-toast';
 import { Button } from './ui/button';
@@ -10,11 +9,10 @@ import { Button } from './ui/button';
 const MeetingTypeList2 = ({ tutorId }: { tutorId: string }) => {
   const router = useRouter();
   const client = useStreamVideoClient();
-  const { user } = useUser();
   const { toast } = useToast();
 
   const enterMeeting = async () => {
-    if (!client || !user) return;
+    if (!client) return;
     try {
       const id = `tutor_${tutorId}`; 
       const call = client.call('default', id);
@@ -38,7 +36,7 @@ const MeetingTypeList2 = ({ tutorId }: { tutorId: string }) => {
     }
   };
 
-  if (!client || !user) return <Loader />;
+  if (!client) return <Loader />;
 
   return (
     <div className="mt-6 flex justify-center">
