@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ======== stream css overrides ======== */
+.str-video__call-stats {
+  max-width: 500px;
+  position: relative;
+}
+
+.str-video__speaker-layout__wrapper {
+  max-height: 700px;
+}
+
+.str-video__participant-details {
+  color: #ffffff;
+}
+
+.str-video__menu-container {
+  color: #ffffff;
+}
+
+.str-video__notification {
+  color: #ffffff;
+}
+
+.str-video__participant-list {
+  background-color: #3c5783;
+  padding: 10px;
+  border-radius: 10px;
+  color: #ffffff;
+  height: 100%;
+}
+
+.str-video__call-controls__button {
+  height: 40px;
+  background-color: #64759b;
+  color: #ffffff;
+}
+
+/* Glassmorphism */
+.glassmorphism {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(176, 184, 204, 0.5);
+}
+
+.glassmorphism2 {
+  background: rgba(18, 17, 17, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(176, 184, 204, 0.25);
+}
+
+/* ==== clerk class override ===== */
+
+.cl-userButtonPopoverActionButtonIcon {
+  color: #ffffff;
+}
+
+.cl-logoBox {
+  height: 40px;
+}
+
+.cl-dividerLine {
+  background: #64759b;
+  height: 2px;
+}
+
+.cl-socialButtonsIconButton {
+  border: 3px solid #b0b8cc;
+}
+
+.cl-internal-wkkub3 {
+  color: #ffffff;
+}
+
+.cl-userButtonPopoverActionButton {
+  color: #ffffff;
+}
+
+/* =============================== */
+
+@layer utilities {
+  .flex-center {
+    @apply flex justify-center items-center;
+  }
+
+  .flex-between {
+    @apply flex justify-between items-center;
+  }
+}
+
+/* Animation */
+
+.show-block {
+  width: 100%;
+  max-width: 350px;
+  display: block;
+  animation: show 0.7s forwards linear;
+}
+
+@keyframes show {
+  0% {
+    animation-timing-function: ease-in;
+    width: 0%;
+  }
+
+  100% {
+    animation-timing-function: ease-in;
+    width: 100%;
+  }
+}
